@@ -5,6 +5,7 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.junit.jupiter.api.Disabled;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 import java.time.Duration;
 
@@ -19,10 +20,16 @@ public class ProductSeleniumTest {
 
     @BeforeEach
     void setup() {
-        driver = new ChromeDriver();
+
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--headless=new");
+        options.addArguments("--no-sandbox");
+        options.addArguments("--disable-dev-shm-usage");
+
+        driver = new ChromeDriver(options);
 
         driver.get("http://localhost:8080/login");
-
+        
         driver.findElement(By.name("username")).sendKeys("admin");
         driver.findElement(By.name("password")).sendKeys("admin");
 
@@ -30,7 +37,7 @@ public class ProductSeleniumTest {
 
         driver.get("http://localhost:8080/products");
     }
-    @Disabled("Desabilitado para evitar falhas no CI devido a dependência do Selenium")
+
     @Test
     void shouldCreateProduct() {
 
