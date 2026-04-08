@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.system.selenium.ProductSeleniumTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-04-08T00:50:23" hostname="DESKTOP-08I26JS" time="9.036">
+<testsuite name="com.system.selenium.ProductSeleniumTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-04-08T01:06:25" hostname="DESKTOP-08I26JS" time="9.571">
   <properties/>
-  <testcase name="shouldCreateProduct()" classname="com.system.selenium.ProductSeleniumTest" time="9.036"/>
-  <system-out><![CDATA[21:50:11.420 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.system.selenium.ProductSeleniumTest]: ProductSeleniumTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-21:50:11.727 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.system.Application for test class com.system.selenium.ProductSeleniumTest
+  <testcase name="shouldCreateProduct()" classname="com.system.selenium.ProductSeleniumTest" time="9.571"/>
+  <system-out><![CDATA[22:06:11.735 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.system.selenium.ProductSeleniumTest]: ProductSeleniumTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+22:06:12.213 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.system.Application for test class com.system.selenium.ProductSeleniumTest
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -13,26 +13,26 @@
  =========|_|==============|___/=/_/_/_/
  :: Spring Boot ::                (v3.2.0)
 
-2026-04-07T21:50:12.959-03:00  INFO 13928 --- [    Test worker] c.system.selenium.ProductSeleniumTest    : Starting ProductSeleniumTest using Java 17.0.17 with PID 13928 (started by sodre in C:\Users\sodre\Downloads\quantum-system)
-2026-04-07T21:50:12.959-03:00  INFO 13928 --- [    Test worker] c.system.selenium.ProductSeleniumTest    : No active profile set, falling back to 1 default profile: "default"
-2026-04-07T21:50:14.595-03:00  INFO 13928 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2026-04-07T21:50:14.720-03:00  INFO 13928 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 108 ms. Found 2 JPA repository interfaces.
-2026-04-07T21:50:16.276-03:00  INFO 13928 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2026-04-07T21:50:16.292-03:00  INFO 13928 --- [    Test worker] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2026-04-07T21:50:16.292-03:00  INFO 13928 --- [    Test worker] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.16]
-2026-04-07T21:50:16.492-03:00  INFO 13928 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2026-04-07T21:50:16.492-03:00  INFO 13928 --- [    Test worker] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3450 ms
-2026-04-07T21:50:16.588-03:00  INFO 13928 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2026-04-07T21:50:17.237-03:00  INFO 13928 --- [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
-2026-04-07T21:50:17.241-03:00  INFO 13928 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2026-04-07T21:50:17.261-03:00  INFO 13928 --- [    Test worker] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:testdb'
-2026-04-07T21:50:17.605-03:00  INFO 13928 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2026-04-07T21:50:17.785-03:00  INFO 13928 --- [    Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.3.1.Final
-2026-04-07T21:50:17.895-03:00  INFO 13928 --- [    Test worker] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2026-04-07T21:50:18.624-03:00  INFO 13928 --- [    Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2026-04-07T21:50:18.749-03:00  WARN 13928 --- [    Test worker] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2026-04-07T21:50:21.069-03:00  INFO 13928 --- [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2026-04-07T21:50:21.211-03:00  WARN 13928 --- [    Test worker] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "create table user (id bigint generated by default as identity, password varchar(255), role varchar(255), username varchar(255), primary key (id))" via JDBC [Syntax error in SQL statement "create table [*]user (id bigint generated by default as identity, password varchar(255), role varchar(255), username varchar(255), primary key (id))"; expected "identifier";]
+2026-04-07T22:06:13.544-03:00  INFO 15364 --- [    Test worker] c.system.selenium.ProductSeleniumTest    : Starting ProductSeleniumTest using Java 17.0.17 with PID 15364 (started by sodre in C:\Users\sodre\Downloads\quantum-system)
+2026-04-07T22:06:13.544-03:00  INFO 15364 --- [    Test worker] c.system.selenium.ProductSeleniumTest    : No active profile set, falling back to 1 default profile: "default"
+2026-04-07T22:06:15.192-03:00  INFO 15364 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-04-07T22:06:15.341-03:00  INFO 15364 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 129 ms. Found 2 JPA repository interfaces.
+2026-04-07T22:06:16.829-03:00  INFO 15364 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 0 (http)
+2026-04-07T22:06:16.876-03:00  INFO 15364 --- [    Test worker] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-04-07T22:06:16.880-03:00  INFO 15364 --- [    Test worker] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.16]
+2026-04-07T22:06:17.100-03:00  INFO 15364 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-04-07T22:06:17.103-03:00  INFO 15364 --- [    Test worker] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3490 ms
+2026-04-07T22:06:17.191-03:00  INFO 15364 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-04-07T22:06:17.864-03:00  INFO 15364 --- [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
+2026-04-07T22:06:17.864-03:00  INFO 15364 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-04-07T22:06:17.896-03:00  INFO 15364 --- [    Test worker] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:testdb'
+2026-04-07T22:06:18.269-03:00  INFO 15364 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-04-07T22:06:18.460-03:00  INFO 15364 --- [    Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.3.1.Final
+2026-04-07T22:06:18.570-03:00  INFO 15364 --- [    Test worker] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-04-07T22:06:19.300-03:00  INFO 15364 --- [    Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-04-07T22:06:19.425-03:00  WARN 15364 --- [    Test worker] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-04-07T22:06:21.799-03:00  INFO 15364 --- [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-04-07T22:06:21.987-03:00  WARN 15364 --- [    Test worker] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "create table user (id bigint generated by default as identity, password varchar(255), role varchar(255), username varchar(255), primary key (id))" via JDBC [Syntax error in SQL statement "create table [*]user (id bigint generated by default as identity, password varchar(255), role varchar(255), username varchar(255), primary key (id))"; expected "identifier";]
 
 org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "create table user (id bigint generated by default as identity, password varchar(255), role varchar(255), username varchar(255), primary key (id))" via JDBC [Syntax error in SQL statement "create table [*]user (id bigint generated by default as identity, password varchar(255), role varchar(255), username varchar(255), primary key (id))"; expected "identifier";]
 	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:94) ~[hibernate-core-6.3.1.Final.jar:6.3.1.Final]
@@ -190,7 +190,7 @@ create table user (id bigint generated by default as identity, password varchar(
 	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:80) ~[hibernate-core-6.3.1.Final.jar:6.3.1.Final]
 	... 130 common frames omitted
 
-2026-04-07T21:50:21.259-03:00  WARN 13928 --- [    Test worker] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "alter table if exists product add constraint FKn3le0a5l0wmq4gs20rn3ty36x foreign key (owner_id) references user" via JDBC [Syntax error in SQL statement "alter table if exists product add constraint FKn3le0a5l0wmq4gs20rn3ty36x foreign key (owner_id) references [*]user"; expected "identifier";]
+2026-04-07T22:06:22.033-03:00  WARN 15364 --- [    Test worker] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "alter table if exists product add constraint FKn3le0a5l0wmq4gs20rn3ty36x foreign key (owner_id) references user" via JDBC [Syntax error in SQL statement "alter table if exists product add constraint FKn3le0a5l0wmq4gs20rn3ty36x foreign key (owner_id) references [*]user"; expected "identifier";]
 
 org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "alter table if exists product add constraint FKn3le0a5l0wmq4gs20rn3ty36x foreign key (owner_id) references user" via JDBC [Syntax error in SQL statement "alter table if exists product add constraint FKn3le0a5l0wmq4gs20rn3ty36x foreign key (owner_id) references [*]user"; expected "identifier";]
 	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:94) ~[hibernate-core-6.3.1.Final.jar:6.3.1.Final]
@@ -348,27 +348,28 @@ alter table if exists product add constraint FKn3le0a5l0wmq4gs20rn3ty36x foreign
 	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:80) ~[hibernate-core-6.3.1.Final.jar:6.3.1.Final]
 	... 129 common frames omitted
 
-2026-04-07T21:50:21.275-03:00  INFO 13928 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2026-04-07T21:50:21.991-03:00  WARN 13928 --- [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2026-04-07T21:50:22.054-03:00  WARN 13928 --- [    Test worker] .s.s.UserDetailsServiceAutoConfiguration : 
+2026-04-07T22:06:22.049-03:00  INFO 15364 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-04-07T22:06:22.930-03:00  WARN 15364 --- [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-04-07T22:06:22.994-03:00  WARN 15364 --- [    Test worker] .s.s.UserDetailsServiceAutoConfiguration : 
 
-Using generated security password: 57c2edfb-f773-4cba-b3c6-71e3488058bf
+Using generated security password: f4f8d2c5-5824-469c-89c3-13e3da6259a8
 
 This generated password is for development use only. Your security configuration must be updated before running your application in production.
 
-2026-04-07T21:50:22.684-03:00  INFO 13928 --- [    Test worker] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@1768729f, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@12301879, org.springframework.security.web.context.SecurityContextHolderFilter@7a28868f, org.springframework.security.web.header.HeaderWriterFilter@53dfbc8, org.springframework.web.filter.CorsFilter@2afcc6a7, org.springframework.security.web.authentication.logout.LogoutFilter@239fd5ef, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@1901fa4a, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3d363e8e, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1efc516f, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3685cd73, org.springframework.security.web.access.ExceptionTranslationFilter@7bbce84a, org.springframework.security.web.access.intercept.AuthorizationFilter@5e5ebb7c]
-2026-04-07T21:50:23.194-03:00  INFO 13928 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
-2026-04-07T21:50:23.218-03:00  INFO 13928 --- [    Test worker] c.system.selenium.ProductSeleniumTest    : Started ProductSeleniumTest in 11.037 seconds (process running for 14.602)
-2026-04-07T21:50:23.940-03:00  WARN 13928 --- [    Test worker] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 42001, SQLState: 42001
-2026-04-07T21:50:23.940-03:00 ERROR 13928 --- [    Test worker] o.h.engine.jdbc.spi.SqlExceptionHelper   : Syntax error in SQL statement "select count(*) from [*]user u1_0"; expected "identifier"; SQL statement:
+2026-04-07T22:06:23.722-03:00  INFO 15364 --- [    Test worker] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@4eda3af9, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@12848ea8, org.springframework.security.web.context.SecurityContextHolderFilter@63ca45e0, org.springframework.security.web.header.HeaderWriterFilter@4e295265, org.springframework.web.filter.CorsFilter@3f2d0ef7, org.springframework.security.web.authentication.logout.LogoutFilter@4c841ccb, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@622dbdb6, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5d349cc2, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@50d4c4dc, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@52c53342, org.springframework.security.web.access.ExceptionTranslationFilter@3eec817a, org.springframework.security.web.access.intercept.AuthorizationFilter@3685cd73]
+2026-04-07T22:06:24.288-03:00  INFO 15364 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 57228 (http) with context path ''
+2026-04-07T22:06:24.303-03:00  INFO 15364 --- [    Test worker] c.system.selenium.ProductSeleniumTest    : Started ProductSeleniumTest in 11.562 seconds (process running for 15.916)
+2026-04-07T22:06:25.112-03:00  WARN 15364 --- [    Test worker] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 42001, SQLState: 42001
+2026-04-07T22:06:25.113-03:00 ERROR 15364 --- [    Test worker] o.h.engine.jdbc.spi.SqlExceptionHelper   : Syntax error in SQL statement "select count(*) from [*]user u1_0"; expected "identifier"; SQL statement:
 select count(*) from user u1_0 [42001-224]
-2026-04-07T21:50:30.138-03:00  WARN 13928 --- [    Test worker] o.o.selenium.devtools.CdpVersionFinder   : Unable to find CDP implementation matching 146
-2026-04-07T21:50:30.138-03:00  WARN 13928 --- [    Test worker] o.o.selenium.chromium.ChromiumDriver     : Unable to find version of CDP to use for 146.0.7680.178. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.14.1` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
-2026-04-07T21:50:30.335-03:00  INFO 13928 --- [nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2026-04-07T21:50:30.335-03:00  INFO 13928 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2026-04-07T21:50:30.335-03:00  INFO 13928 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
-2026-04-07T21:50:30.351-03:00  WARN 13928 --- [nio-8080-exec-1] o.s.w.s.h.HandlerMappingIntrospector     : Cache miss for REQUEST dispatch to '/login' (previous null). Performing CorsConfiguration lookup. This is logged once only at WARN level, and every time at TRACE.
-2026-04-07T21:50:31.058-03:00  WARN 13928 --- [nio-8080-exec-2] o.s.w.s.h.HandlerMappingIntrospector     : Cache miss for REQUEST dispatch to '/favicon.ico' (previous null). Performing MatchableHandlerMapping lookup. This is logged once only at WARN level, and every time at TRACE.
+2026-04-07T22:06:30.745-03:00  WARN 15364 --- [    Test worker] o.o.selenium.devtools.CdpVersionFinder   : Unable to find CDP implementation matching 146
+2026-04-07T22:06:30.746-03:00  WARN 15364 --- [    Test worker] o.o.selenium.chromium.ChromiumDriver     : Unable to find version of CDP to use for 146.0.7680.178. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.14.1` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+2026-04-07T22:06:30.953-03:00  INFO 15364 --- [o-auto-1-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-04-07T22:06:30.953-03:00  INFO 15364 --- [o-auto-1-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-04-07T22:06:30.955-03:00  INFO 15364 --- [o-auto-1-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2026-04-07T22:06:30.995-03:00  WARN 15364 --- [o-auto-1-exec-1] o.s.w.s.h.HandlerMappingIntrospector     : Cache miss for REQUEST dispatch to '/login' (previous null). Performing CorsConfiguration lookup. This is logged once only at WARN level, and every time at TRACE.
+2026-04-07T22:06:31.750-03:00  WARN 15364 --- [o-auto-1-exec-2] o.s.w.s.h.HandlerMappingIntrospector     : Cache miss for REQUEST dispatch to '/favicon.ico' (previous null). Performing MatchableHandlerMapping lookup. This is logged once only at WARN level, and every time at TRACE.
+2026-04-07T22:06:32.957-03:00  WARN 15364 --- [o-auto-1-exec-4] o.a.c.util.SessionIdGeneratorBase        : Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [108] milliseconds.
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
