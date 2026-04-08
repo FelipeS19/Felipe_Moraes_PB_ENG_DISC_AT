@@ -10,13 +10,17 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import java.time.Duration;
 
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.web.servlet.server.LocalServerPort;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class ProductSeleniumTest {
 
     private WebDriver driver;
+
+    @LocalServerPort
+    private int port;
 
     @BeforeEach
     void setup() {
@@ -28,14 +32,14 @@ public class ProductSeleniumTest {
 
         driver = new ChromeDriver(options);
 
-        driver.get("http://localhost:8080/login");
+        driver.get("http://localhost:" + port + "/login");
         
         driver.findElement(By.name("username")).sendKeys("admin");
         driver.findElement(By.name("password")).sendKeys("admin");
 
         driver.findElement(By.tagName("button")).click();
 
-        driver.get("http://localhost:8080/products");
+        driver.get("http://localhost:" + port + "/products");
     }
 
     @Test
