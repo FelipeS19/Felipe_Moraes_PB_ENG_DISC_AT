@@ -10,7 +10,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import java.time.Duration;
 
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.web.servlet.server.LocalServerPort;
+import org.springframework.boot.test.web.server.LocalServerPort;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
