@@ -19,16 +19,16 @@ jobs:
           distribution: temurin
           java-version: 17
 
-      - name: wrapper permissao 
+      - name: Permissão do gradlew
         run: chmod +x gradlew
 
-      - name: Build e Testes
+      - name: Build e Testes Unitários
         run: ./gradlew clean build
 
-      - name: relatorio de cobertura
+      - name: Gerar relatório Jacoco
         run: ./gradlew jacocoTestReport
 
-      - name: Upload do relatório
+      - name: Upload relatório
         uses: actions/upload-artifact@v4
         with:
           name: relatorio-testes
@@ -39,22 +39,30 @@ jobs:
     needs: build
 
     steps:
-      - name: Clonar repositorio
+      - name: Clonar repositório
         uses: actions/checkout@v4
 
-      - name: Configurar Java
+      - name: Configurar Java 17
         uses: actions/setup-java@v4
         with:
           distribution: temurin
           java-version: 17
 
-      - name: Permissão gradlew
+      - name: Permissão do gradlew
         run: chmod +x gradlew
 
-      - name: Rodar aplicação
+      - name: Instalar Google Chrome e ChromeDriver
         run: |
-          ./gradlew bootRun &
-          sleep 20
+          sudo apt update
+          sudo apt install -y wget unzip xvfb libxi6 libnss3 libatk-bridge2.0-0 libgtk-3-0
+          wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+          sudo dpkg -i google-chrome-stable_current_amd64.deb || sudo apt --fix-broken install -y
+          CHROME_VERSION=$(google-chrome --version | grep -oP '\d+\.\d+\.\d+')
+          wget https://chromedriver.storage.googleapis.com/$CHROME_VERSION/chromedriver_linux64.zip
+          unzip chromedriver_linux64.zip
+          sudo mv chromedriver /usr/bin/chromedriver
+          sudo chmod +x /usr/bin/chromedriver
+
 
       - name: Rodar testes Selenium
         run: ./gradlew test

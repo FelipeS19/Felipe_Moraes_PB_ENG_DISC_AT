@@ -9,32 +9,37 @@ import org.springframework.security.web.SecurityFilterChain;
 <span class="fc" id="L9">public class SecurityConfig {</span>
 
     @Bean
+    public org.springframework.security.crypto.password.PasswordEncoder passwordEncoder() {
+<span class="fc" id="L13">        return new org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder();</span>
+    }
+
+    @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 
-<span class="fc" id="L14">       http</span>
-<span class="fc" id="L15">    .csrf(csrf -&gt; csrf.disable())</span>
+<span class="fc" id="L19">       http</span>
+<span class="fc" id="L20">    .csrf(csrf -&gt; csrf.disable())</span>
 
-<span class="fc" id="L17">    .authorizeHttpRequests(auth -&gt; auth</span>
-<span class="fc" id="L18">        .requestMatchers(&quot;/&quot;, &quot;/login&quot;).permitAll()</span>
+<span class="fc" id="L22">    .authorizeHttpRequests(auth -&gt; auth</span>
+<span class="fc" id="L23">        .requestMatchers(&quot;/&quot;, &quot;/login&quot;).permitAll()</span>
 
-<span class="fc" id="L20">        .requestMatchers(&quot;/products&quot;).permitAll()</span>
+<span class="fc" id="L25">        .requestMatchers(&quot;/products&quot;).permitAll()</span>
 
-<span class="fc" id="L22">        .requestMatchers(&quot;/products/**&quot;).hasAnyRole(&quot;USER&quot;, &quot;ADMIN&quot;)</span>
+<span class="fc" id="L27">        .requestMatchers(&quot;/products/**&quot;).hasAnyRole(&quot;USER&quot;, &quot;ADMIN&quot;)</span>
 
-<span class="fc" id="L24">        .requestMatchers(&quot;/users/**&quot;).hasRole(&quot;ADMIN&quot;)</span>
+<span class="fc" id="L29">        .requestMatchers(&quot;/users/**&quot;).hasRole(&quot;ADMIN&quot;)</span>
 
-<span class="fc" id="L26">        .anyRequest().authenticated()</span>
+<span class="fc" id="L31">        .anyRequest().authenticated()</span>
     )
 
-<span class="fc" id="L29">    .formLogin(form -&gt; form</span>
-<span class="fc" id="L30">        .loginPage(&quot;/login&quot;)</span>
-<span class="fc" id="L31">        .defaultSuccessUrl(&quot;/products&quot;, true)</span>
-<span class="fc" id="L32">        .permitAll()</span>
+<span class="fc" id="L34">    .formLogin(form -&gt; form</span>
+<span class="fc" id="L35">        .loginPage(&quot;/login&quot;)</span>
+<span class="fc" id="L36">        .defaultSuccessUrl(&quot;/products&quot;, true)</span>
+<span class="fc" id="L37">        .permitAll()</span>
     )
 
-<span class="fc" id="L35">    .logout(logout -&gt; logout.permitAll());</span>
+<span class="fc" id="L40">    .logout(logout -&gt; logout.permitAll());</span>
 
-<span class="fc" id="L37">        return http.build();</span>
+<span class="fc" id="L42">        return http.build();</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.9.202303310957</span></div></body></html>

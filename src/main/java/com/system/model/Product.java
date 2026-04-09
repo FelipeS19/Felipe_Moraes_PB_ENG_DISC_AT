@@ -1,7 +1,6 @@
 package com.system.model;
 
 import jakarta.persistence.*;
-import com.system.model.User;
 
 @Entity
 public class Product {

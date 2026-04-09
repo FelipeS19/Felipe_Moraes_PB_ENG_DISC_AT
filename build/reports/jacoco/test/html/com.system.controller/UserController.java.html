@@ -5,7 +5,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import com.system.service.UserService;
-import com.system.model.User;
 
 @Controller
 @RequestMapping(&quot;/users&quot;)
@@ -13,14 +12,14 @@ public class UserController {
 
     private final UserService service;
 
-<span class="fc" id="L16">    public UserController(UserService service) {</span>
-<span class="fc" id="L17">        this.service = service;</span>
-<span class="fc" id="L18">    }</span>
+<span class="fc" id="L15">    public UserController(UserService service) {</span>
+<span class="fc" id="L16">        this.service = service;</span>
+<span class="fc" id="L17">    }</span>
 
     @GetMapping
     public String list(Model model){
-<span class="nc" id="L22">        model.addAttribute(&quot;users&quot;, service.listUsers());</span>
-<span class="nc" id="L23">        return &quot;users&quot;;</span>
+<span class="nc" id="L21">        model.addAttribute(&quot;users&quot;, service.listUsers());</span>
+<span class="nc" id="L22">        return &quot;users&quot;;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.9.202303310957</span></div></body></html>

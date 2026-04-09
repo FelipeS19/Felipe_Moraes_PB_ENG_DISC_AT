@@ -4,6 +4,8 @@ import org.junit.jupiter.api.*;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
@@ -31,15 +33,31 @@ public class ProductSeleniumTest {
         options.addArguments("--disable-dev-shm-usage");
 
         driver = new ChromeDriver(options);
-        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
-        driver.get("http://localhost:" + port + "/login");
+        wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 
-        wait.until(d -> d.findElement(By.name("username"))).sendKeys("admin");
-        wait.until(d -> d.findElement(By.name("password"))).sendKeys("admin");
-        wait.until(d -> d.findElement(By.tagName("button"))).click();
+        try {
+            driver.get("http://localhost:" + port + "/login");
 
-        driver.get("http://localhost:" + port + "/products");
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.name("username"))).sendKeys("admin");
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.name("password"))).sendKeys("admin");
+
+            wait.until(ExpectedConditions.elementToBeClickable(By.id("loginbtn"))).click();
+            Thread.sleep(3000);
+            System.out.println("URL APÓS LOGIN: " + driver.getCurrentUrl());
+            wait.until(ExpectedConditions.or(
+            ExpectedConditions.urlContains("/products"),
+            ExpectedConditions.urlContains("error")
+            ));
+            if (driver.getCurrentUrl().contains("error")) {
+                throw new RuntimeException("Login falhou!");
+}
+
+        } catch (Exception e) {
+            System.out.println("ERRO NO LOGIN:");
+            System.out.println(driver.getPageSource());
+            throw new RuntimeException(e);
+        }
     }
 
     @Test
@@ -47,15 +65,26 @@ public class ProductSeleniumTest {
 
         String nome = "ProdutoTeste" + System.currentTimeMillis();
 
-        wait.until(d -> d.findElement(By.name("name"))).sendKeys(nome);
-        wait.until(d -> d.findElement(By.name("price"))).sendKeys("10");
-        wait.until(d -> d.findElement(By.name("quantity"))).sendKeys("2");
+        try {
+            driver.get("http://localhost:" + port + "/products");
 
-        wait.until(d -> d.findElement(By.tagName("button"))).click();
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.name("name"))).sendKeys(nome);
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.name("price"))).sendKeys("10");
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.name("quantity"))).sendKeys("2");
 
-        wait.until(d -> d.getPageSource().contains(nome));
+            wait.until(ExpectedConditions.elementToBeClickable(By.id("cadbtn"))).click();
 
-        assertTrue(driver.getPageSource().contains(nome));
+            wait.until(ExpectedConditions.textToBePresentInElementLocated(
+                    By.tagName("body"), nome
+            ));
+
+            assertTrue(driver.getPageSource().contains(nome));
+
+        } catch (Exception e) {
+            System.out.println(" ERRO AO CRIAR PRODUTO:");
+            System.out.println(driver.getPageSource());
+            throw e;
+        }
     }
 
     @AfterEach

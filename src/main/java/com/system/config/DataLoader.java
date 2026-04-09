@@ -3,8 +3,7 @@ package com.system.config;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import com.system.model.User;
 import com.system.repository.UserRepository;
@@ -13,7 +12,7 @@ import com.system.repository.UserRepository;
 public class DataLoader {
 
     @Bean
-    CommandLineRunner initUsers(UserRepository repository){
+    CommandLineRunner initUsers(UserRepository repository , PasswordEncoder encoder) {
 
         return args -> {
 
@@ -22,19 +21,21 @@ public class DataLoader {
 
                     User admin = new User();
                     admin.setUsername("admin");
-                    admin.setPassword("{noop}admin");
-                    admin.setRole("ROLE_ADMIN");
+                    admin.setPassword(encoder.encode("admin"));
+                    admin.setRole("ROLE_ADMIN");        
+                    System.out.println("Admin criado: " + admin.getUsername() + " / " + admin.getPassword());
 
                     User user = new User();
                     user.setUsername("user");
-                    user.setPassword("{noop}123");
+                    user.setPassword(encoder.encode("123"));
                     user.setRole("ROLE_USER");
+                    System.out.println("User criado: " + user.getUsername() + " / " + user.getPassword());
 
                     repository.save(admin);
                     repository.save(user);
                 }
             } catch (Exception e) {
-
+                e.printStackTrace();
             }
 
         };

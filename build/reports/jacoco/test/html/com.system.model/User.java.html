@@ -3,7 +3,8 @@
 import jakarta.persistence.*;
 
 @Entity
-<span class="fc" id="L6">public class User {</span>
+@Table(name = &quot;users&quot;)
+<span class="fc" id="L7">public class User {</span>
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,32 +17,32 @@ import jakarta.persistence.*;
     private String role;
 
     public Long getId() {
-<span class="nc" id="L19">        return id;</span>
+<span class="nc" id="L20">        return id;</span>
     }
 
     public String getUsername() {
-<span class="nc" id="L23">        return username;</span>
+<span class="fc" id="L24">        return username;</span>
     }
 
     public void setUsername(String username) {
-<span class="nc" id="L27">        this.username = username;</span>
-<span class="nc" id="L28">    }</span>
+<span class="fc" id="L28">        this.username = username;</span>
+<span class="fc" id="L29">    }</span>
 
     public String getPassword() {
-<span class="nc" id="L31">        return password;</span>
+<span class="fc" id="L32">        return password;</span>
     }
 
     public void setPassword(String password) {
-<span class="nc" id="L35">        this.password = password;</span>
-<span class="nc" id="L36">    }</span>
+<span class="fc" id="L36">        this.password = password;</span>
+<span class="fc" id="L37">    }</span>
 
     public String getRole() {
-<span class="nc" id="L39">        return role;</span>
+<span class="fc" id="L40">        return role;</span>
     }
 
     public void setRole(String role) {
-<span class="nc" id="L43">        this.role = role;</span>
-<span class="nc" id="L44">    }</span>
+<span class="fc" id="L44">        this.role = role;</span>
+<span class="fc" id="L45">    }</span>
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.9.202303310957</span></div></body></html>

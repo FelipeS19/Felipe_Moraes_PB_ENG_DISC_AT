@@ -5,7 +5,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import com.system.service.UserService;
-import com.system.model.User;
 
 @Controller
 @RequestMapping("/users")
