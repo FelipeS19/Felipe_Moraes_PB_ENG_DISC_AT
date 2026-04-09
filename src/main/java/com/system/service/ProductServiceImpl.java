@@ -15,6 +15,9 @@ public class ProductServiceImpl implements ProductService {
     public ProductServiceImpl(ProductRepository repository) {
         this.repository = repository;
     }
+    public Product findById(Long id){
+        return repository.findById(id).orElseThrow(() -> new IllegalArgumentException("Product not found"));
+    }
 
     @Override
     public Product save(Product product) {

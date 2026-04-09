@@ -13,9 +13,12 @@ public class UserService {
 <span class="fc" id="L13">    public UserService(UserRepository repository){</span>
 <span class="fc" id="L14">        this.repository = repository;</span>
 <span class="fc" id="L15">    }</span>
+    public User findByUsername(String username){
+<span class="fc" id="L17">        return repository.findByUsername(username);</span>
+    }
 
     public List&lt;User&gt; listUsers(){
-<span class="nc" id="L18">        return repository.findAll();</span>
+<span class="nc" id="L21">        return repository.findAll();</span>
     }
 
 }

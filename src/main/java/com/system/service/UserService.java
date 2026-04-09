@@ -13,6 +13,9 @@ public class UserService {
     public UserService(UserRepository repository){
         this.repository = repository;
     }
+    public User findByUsername(String username){
+        return repository.findByUsername(username);
+    }
 
     public List<User> listUsers(){
         return repository.findAll();
