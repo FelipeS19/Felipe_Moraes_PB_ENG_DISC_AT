@@ -3,6 +3,9 @@ package com.system.service;
 import com.system.model.Product;
 import com.system.repository.ProductRepository;
 
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
+
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
@@ -17,8 +20,7 @@ public class ProductServiceTest {
 
     @Test
     void shouldSaveProduct() {
-        Product product = new Product();
-        product.setName("Notebook");
+        Product product = new Product("Notebook", 1000.0, 10);
 
         Mockito.when(repository.save(product)).thenReturn(product);
 
@@ -36,8 +38,7 @@ public class ProductServiceTest {
 
     @Test
     void shouldFindProductById() {
-        Product product = new Product();
-        product.setName("Mouse");
+        Product product = new Product("Mouse", 50.0, 20);
 
         Mockito.when(repository.findById(1L)).thenReturn(Optional.of(product));
 
@@ -49,11 +50,37 @@ public class ProductServiceTest {
     @Test
     void ThrowProductNotFound() {
 
-    Mockito.when(repository.findById(99L))
-           .thenReturn(java.util.Optional.empty());
+        Mockito.when(repository.findById(99L))
+            .thenReturn(java.util.Optional.empty());
 
-    assertThrows(IllegalArgumentException.class, () -> {
-        service.findById(99L);
-    });
-}
+        assertThrows(IllegalArgumentException.class, () -> {
+            service.findById(99L);
+        });
+    }
+
+    @ParameterizedTest
+    @ValueSource(doubles = {0, -10, -1})
+    void shouldFailInvalidPrice(double price) {
+
+        Product product = new Product("Teste", price, 1);
+
+        assertTrue(product.getPrice() <= 0, "Preço inválido deveria ser rejeitado");
+    }
+    
+    @Test
+    void shouldAcceptBoundaryValues() {
+        Product product = new Product("Teste", 0.01, 1);
+
+        assertEquals(0.01, product.getPrice());
+    }
+    
+    @Test
+    void throwwhendeletingnonexistentproduct() {
+        Mockito.doThrow(new RuntimeException("Produto não encontrado"))
+            .when(repository).deleteById(99L);
+
+        assertThrows(RuntimeException.class, () -> {
+            service.delete(99L);
+        });
+    }
 }

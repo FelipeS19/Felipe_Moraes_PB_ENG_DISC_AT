@@ -19,17 +19,9 @@ public class DataLoader {
             try {
                 if(repository.count() == 0){
 
-                    User admin = new User();
-                    admin.setUsername("admin");
-                    admin.setPassword(encoder.encode("admin"));
-                    admin.setRole("ROLE_ADMIN");        
-                    System.out.println("Admin criado: " + admin.getUsername() + " / " + admin.getPassword());
-
-                    User user = new User();
-                    user.setUsername("user");
-                    user.setPassword(encoder.encode("123"));
-                    user.setRole("ROLE_USER");
-                    System.out.println("User criado: " + user.getUsername() + " / " + user.getPassword());
+                    User admin = new User("admin", encoder.encode("admin"), "ROLE_ADMIN");
+              
+                    User user = new User("user", encoder.encode("123"), "ROLE_USER");
 
                     repository.save(admin);
                     repository.save(user);

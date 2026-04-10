@@ -5,19 +5,22 @@ import com.system.repository.UserRepository;
 
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
+import  org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 public class UserServiceTest {
 
     private UserRepository repository = Mockito.mock(UserRepository.class);
-    private UserService service = new UserService(repository);
+    private UserService service = new UserService(
+        repository,
+        new BCryptPasswordEncoder()
+    );
 
     @Test
     void shouldFindUserByUsername() {
 
-        User user = new User();
-        user.setUsername("admin");
+        User user = new User( "admin", "admin", "ROLE_ADMIN");
 
         Mockito.when(repository.findByUsername("admin")).thenReturn(user);
 

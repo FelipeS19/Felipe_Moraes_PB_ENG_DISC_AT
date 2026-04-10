@@ -7,11 +7,7 @@ public class ProductTest {
 
     @Test
     void shouldSetAndGetFields() {
-        Product p = new Product();
-
-        p.setName("Teclado");
-        p.setPrice(100);
-        p.setQuantity(2);
+        Product p = new Product("Teclado", 100, 2);
 
         assertEquals("Teclado", p.getName());
         assertEquals(100, p.getPrice());

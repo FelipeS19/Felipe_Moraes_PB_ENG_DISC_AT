@@ -5,21 +5,35 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import com.system.service.UserService;
+import com.system.model.User;
 
 @Controller
-@RequestMapping(&quot;/users&quot;)
+@RequestMapping(&quot;/user&quot;)
 public class UserController {
 
     private final UserService service;
 
-<span class="fc" id="L15">    public UserController(UserService service) {</span>
-<span class="fc" id="L16">        this.service = service;</span>
-<span class="fc" id="L17">    }</span>
+<span class="fc" id="L16">    public UserController(UserService service) {</span>
+<span class="fc" id="L17">        this.service = service;</span>
+<span class="fc" id="L18">    }</span>
 
     @GetMapping
     public String list(Model model){
-<span class="fc" id="L21">        model.addAttribute(&quot;users&quot;, service.listUsers());</span>
-<span class="fc" id="L22">        return &quot;users&quot;;</span>
+<span class="fc" id="L22">        model.addAttribute(&quot;users&quot;, service.listUsers());</span>
+<span class="fc" id="L23">        return &quot;user&quot;;</span>
     }
+
+    @GetMapping(&quot;/new&quot;)
+    public String createForm(Model model){
+<span class="nc" id="L28">        model.addAttribute(&quot;user&quot;, new User(null, null, null));</span>
+<span class="nc" id="L29">        return &quot;user-form&quot;;</span>
+    }
+
+    @PostMapping
+    public String save(@ModelAttribute User user){
+<span class="nc" id="L34">        service.save(user);</span>
+<span class="nc" id="L35">        return &quot;redirect:/user&quot;;</span>
+    }
+
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.9.202303310957</span></div></body></html>

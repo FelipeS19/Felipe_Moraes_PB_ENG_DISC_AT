@@ -20,13 +20,13 @@ import org.springframework.security.web.SecurityFilterChain;
 <span class="fc" id="L20">    .csrf(csrf -&gt; csrf.disable())</span>
 
 <span class="fc" id="L22">    .authorizeHttpRequests(auth -&gt; auth</span>
-<span class="fc" id="L23">        .requestMatchers(&quot;/&quot;, &quot;/login&quot;).permitAll()</span>
+<span class="fc" id="L23">        .requestMatchers(&quot;/&quot;, &quot;/login&quot;, &quot;/login/**&quot;).permitAll()</span>
 
 <span class="fc" id="L25">        .requestMatchers(&quot;/products&quot;).permitAll()</span>
 
 <span class="fc" id="L27">        .requestMatchers(&quot;/products/**&quot;).hasAnyRole(&quot;USER&quot;, &quot;ADMIN&quot;)</span>
 
-<span class="fc" id="L29">        .requestMatchers(&quot;/users/**&quot;).hasRole(&quot;ADMIN&quot;)</span>
+<span class="fc" id="L29">        .requestMatchers(&quot;/user/**&quot;).hasRole(&quot;ADMIN&quot;)</span>
 
 <span class="fc" id="L31">        .anyRequest().authenticated()</span>
     )
@@ -34,12 +34,15 @@ import org.springframework.security.web.SecurityFilterChain;
 <span class="fc" id="L34">    .formLogin(form -&gt; form</span>
 <span class="fc" id="L35">        .loginPage(&quot;/login&quot;)</span>
 <span class="fc" id="L36">        .defaultSuccessUrl(&quot;/products&quot;, true)</span>
-<span class="fc" id="L37">        .permitAll()</span>
+<span class="fc" id="L37">        .successHandler((request, response, authentication) -&gt; {</span>
+<span class="fc" id="L38">            response.sendRedirect(&quot;/products&quot;);</span>
+<span class="fc" id="L39">        })</span>
+<span class="fc" id="L40">        .permitAll()</span>
     )
 
-<span class="fc" id="L40">    .logout(logout -&gt; logout.permitAll());</span>
+<span class="fc" id="L43">    .logout(logout -&gt; logout.permitAll());</span>
 
-<span class="fc" id="L42">        return http.build();</span>
+<span class="fc" id="L45">        return http.build();</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.9.202303310957</span></div></body></html>

@@ -14,6 +14,9 @@ import java.time.Duration;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.server.LocalServerPort;
 
+import com.system.selenium.pages.ProductPage;
+
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
@@ -34,6 +37,7 @@ public class ProductSeleniumTest {
         options.addArguments("--disable-dev-shm-usage");
 
         WebDriverManager.chromedriver().setup();
+        System.out.println("port: " + port);
         driver = new ChromeDriver(options);
 
         wait = new WebDriverWait(driver, Duration.ofSeconds(30));
@@ -45,12 +49,10 @@ public class ProductSeleniumTest {
             wait.until(ExpectedConditions.visibilityOfElementLocated(By.name("password"))).sendKeys("admin");
 
             wait.until(ExpectedConditions.elementToBeClickable(By.id("loginbtn"))).click();
-            Thread.sleep(3000);
+            
             System.out.println("URL APÓS LOGIN: " + driver.getCurrentUrl());
-            wait.until(ExpectedConditions.or(
-            ExpectedConditions.urlContains("/products"),
-            ExpectedConditions.urlContains("error")
-            ));
+            
+            wait.until(ExpectedConditions.urlContains("/products"));
             if (driver.getCurrentUrl().contains("error")) {
                 throw new RuntimeException("Login falhou!");
 }
@@ -65,30 +67,43 @@ public class ProductSeleniumTest {
     @Test
     void shouldCreateProduct() {
 
-        String nome = "ProdutoTeste" + System.currentTimeMillis();
+        ProductPage product = new ProductPage(driver);
 
-        try {
-            driver.get("http://localhost:" + port + "/products");
+        driver.get("http://localhost:" + port + "/products");
 
-            wait.until(ExpectedConditions.visibilityOfElementLocated(By.name("name"))).sendKeys(nome);
-            wait.until(ExpectedConditions.visibilityOfElementLocated(By.name("price"))).sendKeys("10");
-            wait.until(ExpectedConditions.visibilityOfElementLocated(By.name("quantity"))).sendKeys("2");
+        String nome = "Produto" + System.currentTimeMillis();
 
-            wait.until(ExpectedConditions.elementToBeClickable(By.id("cadbtn"))).click();
+        product.createProduct(nome, "10", "2");
 
-            wait.until(ExpectedConditions.textToBePresentInElementLocated(
-                    By.tagName("body"), nome
-            ));
-
-            assertTrue(driver.getPageSource().contains(nome));
-
-        } catch (Exception e) {
-            System.out.println(" ERRO AO CRIAR PRODUTO:");
-            System.out.println(driver.getPageSource());
-            throw e;
-        }
+        assertTrue(product.containsProduct(nome));
     }
 
+    @Test
+    void shouldShowErrorWhenEmptyFields() {
+
+        ProductPage product = new ProductPage(driver);
+
+        driver.get("http://localhost:" + port + "/products");
+
+        product.createProduct("", "0", "0");
+
+        System.out.println(driver.getCurrentUrl());
+
+        assertTrue(
+            driver.getPageSource().contains("obrigatório") ||
+            driver.getPageSource().contains("Erro")
+            
+        );
+    }
+
+    @Test
+    void shouldHandleslowresponses() {
+        driver.get("http://localhost:" + port + "/products");
+
+        assertDoesNotThrow(()-> {
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("cadbtn")));
+        });
+    }
     @AfterEach
     void close() {
         if (driver != null) {

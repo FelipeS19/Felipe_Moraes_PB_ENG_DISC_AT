@@ -1,113 +1,70 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 
-<head>
+<head th:replace="~{frag/layout :: head('Produtos')}"></head>
 
-<title>Produtos</title>
+<body>
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-
-</head>
-
-<body class="bg-light">
+<div th:replace="~{frag/layout :: navbar}"></div>
 
 <div class="container mt-5">
 
-<h3 class="text-center">
+    <div class="glass">
+        <h3 class="text-center mb-4">Cadastro de Produtos</h3>
+    
 
-Cadastro de Produtos
+        <form th:action="@{/products}" method="post" class="row g-3" th:object="${productForm}">
+            <div th:if="${#fields.hasErrors('*')}" class="alert alert-danger">
+                <p th:each="err : ${#fields.errors('*')}" th:text="${err}"></p>
+            </div>
+            
+            <div class="col-md-4">
+                <input class="form-control" type="text" th:field="*{name}" name="name" placeholder="Produto">
+            </div>
 
-</h3>
+            <div class="col-md-4">
+                <input class="form-control" type="number" th:field="*{price}" name="price" placeholder="Preço">
+            </div>
 
-<form action="/products" method="post" class="row g-3">
+            <div class="col-md-4">
+                <input class="form-control" type="number" th:field="*{quantity}" name="quantity" placeholder="Quantidade">
+            </div>
 
-<div class="col-md-4">
+            <button id="cadbtn" type="submit" class="btn btn-success mt-3">
+                Cadastrar
+            </button>
+        </form>
+    </div>
 
-<input class="form-control"
-type="text"
-name="name"
-placeholder="Produto">
+    <div class="glass mt-4">
+        <table class="table table-dark table-hover text-center align-middle">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Produto</th>
+                    <th>Preço</th>
+                    <th>Quantidade</th>
+                    <th>Ação</th>
+                </tr>
+            </thead>
 
-</div>
-
-<div class="col-md-4">
-
-<input class="form-control"
-type="number"
-name="price"
-placeholder="Preço">
-
-</div>
-
-<div class="col-md-4">
-
-<input class="form-control"
-type="number"
-name="quantity"
-placeholder="Quantidade">
-
-</div>
-
-<button id="cadbtn" class="btn btn-success mt-3">
-
-Cadastrar
-
-</button>
-
-</form>
-
-<hr>
-
-<table class="table table-striped">
-
-<thead>
-
-<tr>
-
-<th>ID</th>
-<th>Produto</th>
-<th>Preço</th>
-<th>Quantidade</th>
-<th>Ação</th>
-
-</tr>
-
-</thead>
-
-<tbody>
-
-<tr th:each="p : ${products}">
-
-<td th:text="${p.id}"></td>
-
-<td th:text="${p.name}"></td>
-
-<td th:text="${p.price}"></td>
-
-<td th:text="${p.quantity}"></td>
-
-<td>
-
-<form th:action="@{/products/delete/{id}(id=${p.id})}" method="post">
-
-<button class="btn btn-danger btn-sm delete-btn">
-
-Excluir
-
-</button>
-
-</form>
-
-</td>
-
-</tr>
-
-</tbody>
-
-</table>
+            <tbody>
+                <tr th:each="p : ${products}">
+                    <td th:text="${p.id}"></td>
+                    <td th:text="${p.name}"></td>
+                    <td th:text="${p.price}"></td>
+                    <td th:text="${p.quantity}"></td>
+                    <td>
+                        <form th:action="@{/products/delete/{id}(id=${p.id})}" method="post">
+                            <button class="btn btn-danger btn-sm">Excluir</button>
+                        </form>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 
 </div>
 
 </body>
-
 </html>

@@ -3,56 +3,63 @@
 import jakarta.persistence.*;
 
 @Entity
-<span class="fc" id="L6">public class Product {</span>
+public class Product {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String name;
-
-    private double price;
-
-    private int quantity;
+    private  String name;
+    private  double price;
+    private  int quantity;
 
     @ManyToOne
     private User owner;
 
-    public User getOwner() {
-<span class="nc" id="L22">        return owner;</span>
-    }
+<span class="fc" id="L19">    public Product() {</span>
+<span class="fc" id="L20">        this.name = null;</span>
+<span class="fc" id="L21">        this.price = 0;</span>
+<span class="fc" id="L22">        this.quantity = 0;</span>
+<span class="fc" id="L23">    }</span>
 
-    public void setOwner(User owner) {
-<span class="nc" id="L26">        this.owner = owner;</span>
-<span class="nc" id="L27">    }</span>
+<span class="fc" id="L25">    public Product(String name, double price, int quantity) {</span>
+<span class="fc" id="L26">        this.name = name;</span>
+<span class="fc" id="L27">        this.price = price;</span>
+<span class="fc" id="L28">        this.quantity = quantity;</span>
+<span class="fc" id="L29">    }</span>
 
     public Long getId() {
-<span class="fc" id="L30">        return id;</span>
+<span class="fc" id="L32">        return id;</span>
     }
 
     public String getName() {
-<span class="fc" id="L34">        return name;</span>
+<span class="fc" id="L36">        return name;</span>
+    }
+
+    public double getPrice() {
+<span class="fc" id="L40">        return price;</span>
+    }
+
+    public int getQuantity() {
+<span class="fc" id="L44">        return quantity;</span>
+    }
+
+    public User getOwner() {
+<span class="nc" id="L48">        return owner;</span>
     }
 
     public void setName(String name) {
-<span class="fc" id="L38">        this.name = name;</span>
-<span class="fc" id="L39">    }</span>
-
-    public double getPrice() {
-<span class="fc" id="L42">        return price;</span>
-    }
+<span class="nc" id="L52">        this.name = name;</span>
+<span class="nc" id="L53">    }</span>
 
     public void setPrice(double price) {
-<span class="fc" id="L46">        this.price = price;</span>
-<span class="fc" id="L47">    }</span>
-
-    public int getQuantity() {
-<span class="fc" id="L50">        return quantity;</span>
-    }
+<span class="nc" id="L56">        this.price = price;</span>
+<span class="nc" id="L57">    }</span>
 
     public void setQuantity(int quantity) {
-<span class="fc" id="L54">        this.quantity = quantity;</span>
-<span class="fc" id="L55">    }</span>
+<span class="nc" id="L60">        this.quantity = quantity;</span>
+<span class="nc" id="L61">    }</span>
 
+    
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.9.202303310957</span></div></body></html>

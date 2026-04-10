@@ -1,6 +1,7 @@
 package com.system.controller;
 
 import com.system.service.ProductService;
+import org.springframework.validation.BindingResult;
 
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -29,7 +30,18 @@ public class ProductControllerTest {
 
     @Test
     void shouldCreateProduct() {
-        String view = controller.create(new com.system.model.Product());
+
+        ProductForm form = new ProductForm();
+        form.setName("Notebook");
+        form.setPrice(1000.0);
+        form.setQuantity(10);
+
+        BindingResult result = Mockito.mock(BindingResult.class);
+        Model model = Mockito.mock(Model.class);
+
+        Mockito.when(result.hasErrors()).thenReturn(false);
+
+        String view = controller.create(form, result, model);
 
         assertEquals("redirect:/products", view);
     }

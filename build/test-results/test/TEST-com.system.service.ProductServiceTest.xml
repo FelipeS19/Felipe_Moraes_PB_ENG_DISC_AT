@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.system.service.ProductServiceTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2026-04-09T02:26:43" hostname="DESKTOP-08I26JS" time="0.014">
+<testsuite name="com.system.service.ProductServiceTest" tests="9" skipped="0" failures="0" errors="0" timestamp="2026-04-10T05:11:19" hostname="DESKTOP-08I26JS" time="0.186">
   <properties/>
   <testcase name="shouldDeleteProduct()" classname="com.system.service.ProductServiceTest" time="0.002"/>
-  <testcase name="shouldFindProductById()" classname="com.system.service.ProductServiceTest" time="0.002"/>
-  <testcase name="ThrowProductNotFound()" classname="com.system.service.ProductServiceTest" time="0.003"/>
+  <testcase name="[1] price=0.0" classname="com.system.service.ProductServiceTest" time="0.059"/>
+  <testcase name="[2] price=-10.0" classname="com.system.service.ProductServiceTest" time="0.001"/>
+  <testcase name="[3] price=-1.0" classname="com.system.service.ProductServiceTest" time="0.002"/>
+  <testcase name="shouldAcceptBoundaryValues()" classname="com.system.service.ProductServiceTest" time="0.001"/>
+  <testcase name="shouldFindProductById()" classname="com.system.service.ProductServiceTest" time="0.003"/>
+  <testcase name="ThrowProductNotFound()" classname="com.system.service.ProductServiceTest" time="0.005"/>
   <testcase name="shouldSaveProduct()" classname="com.system.service.ProductServiceTest" time="0.004"/>
+  <testcase name="throwwhendeletingnonexistentproduct()" classname="com.system.service.ProductServiceTest" time="0.015"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

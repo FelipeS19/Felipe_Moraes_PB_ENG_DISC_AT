@@ -19,7 +19,7 @@ public class UserControllerTest {
 
         String view = controller.list(model);
 
-        assertEquals("users", view);
+        assertEquals("user", view);
         Mockito.verify(service).listUsers();
     }
 }

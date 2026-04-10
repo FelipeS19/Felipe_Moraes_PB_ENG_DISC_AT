@@ -20,13 +20,13 @@ public class SecurityConfig {
     .csrf(csrf -> csrf.disable())
 
     .authorizeHttpRequests(auth -> auth
-        .requestMatchers("/", "/login").permitAll()
+        .requestMatchers("/", "/login", "/login/**").permitAll()
 
         .requestMatchers("/products").permitAll()
 
         .requestMatchers("/products/**").hasAnyRole("USER", "ADMIN")
 
-        .requestMatchers("/users/**").hasRole("ADMIN")
+        .requestMatchers("/user/**").hasRole("ADMIN")
 
         .anyRequest().authenticated()
     )
@@ -34,6 +34,9 @@ public class SecurityConfig {
     .formLogin(form -> form
         .loginPage("/login")
         .defaultSuccessUrl("/products", true)
+        .successHandler((request, response, authentication) -> {
+            response.sendRedirect("/products");
+        })
         .permitAll()
     )
 

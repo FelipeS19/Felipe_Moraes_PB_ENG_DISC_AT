@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.system.selenium.ProductSeleniumTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-04-09T02:26:36" hostname="DESKTOP-08I26JS" time="7.53">
+<testsuite name="com.system.selenium.ProductSeleniumTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2026-04-10T05:11:07" hostname="DESKTOP-08I26JS" time="10.303">
   <properties/>
-  <testcase name="shouldCreateProduct()" classname="com.system.selenium.ProductSeleniumTest" time="7.53"/>
-  <system-out><![CDATA[23:26:22.112 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.system.selenium.ProductSeleniumTest]: ProductSeleniumTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-23:26:22.732 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.system.Application for test class com.system.selenium.ProductSeleniumTest
+  <testcase name="shouldCreateProduct()" classname="com.system.selenium.ProductSeleniumTest" time="5.648"/>
+  <testcase name="shouldHandleslowresponses()" classname="com.system.selenium.ProductSeleniumTest" time="2.125"/>
+  <testcase name="shouldShowErrorWhenEmptyFields()" classname="com.system.selenium.ProductSeleniumTest" time="2.527"/>
+  <system-out><![CDATA[02:10:55.105 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.system.selenium.ProductSeleniumTest]: ProductSeleniumTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+02:10:55.409 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.system.Application for test class com.system.selenium.ProductSeleniumTest
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -13,42 +15,54 @@
  =========|_|==============|___/=/_/_/_/
  :: Spring Boot ::                (v3.2.0)
 
-2026-04-08T23:26:24.077-03:00  INFO 8188 --- [    Test worker] c.system.selenium.ProductSeleniumTest    : Starting ProductSeleniumTest using Java 17.0.17 with PID 8188 (started by sodre in C:\Users\sodre\Downloads\quantum-system)
-2026-04-08T23:26:24.077-03:00  INFO 8188 --- [    Test worker] c.system.selenium.ProductSeleniumTest    : No active profile set, falling back to 1 default profile: "default"
-2026-04-08T23:26:25.967-03:00  INFO 8188 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2026-04-08T23:26:26.112-03:00  INFO 8188 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 117 ms. Found 2 JPA repository interfaces.
-2026-04-08T23:26:27.647-03:00  INFO 8188 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 0 (http)
-2026-04-08T23:26:27.677-03:00  INFO 8188 --- [    Test worker] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2026-04-08T23:26:27.677-03:00  INFO 8188 --- [    Test worker] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.16]
-2026-04-08T23:26:27.882-03:00  INFO 8188 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2026-04-08T23:26:27.882-03:00  INFO 8188 --- [    Test worker] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3710 ms
-2026-04-08T23:26:27.977-03:00  INFO 8188 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2026-04-08T23:26:28.657-03:00  INFO 8188 --- [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
-2026-04-08T23:26:28.662-03:00  INFO 8188 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2026-04-08T23:26:28.697-03:00  INFO 8188 --- [    Test worker] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:testdb'
-2026-04-08T23:26:29.067-03:00  INFO 8188 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2026-04-08T23:26:29.247-03:00  INFO 8188 --- [    Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.3.1.Final
-2026-04-08T23:26:29.362-03:00  INFO 8188 --- [    Test worker] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2026-04-08T23:26:29.765-03:00  INFO 8188 --- [    Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2026-04-08T23:26:29.915-03:00  WARN 8188 --- [    Test worker] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2026-04-08T23:26:32.112-03:00  INFO 8188 --- [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2026-04-08T23:26:32.237-03:00  INFO 8188 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2026-04-08T23:26:33.093-03:00  WARN 8188 --- [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2026-04-08T23:26:33.877-03:00  INFO 8188 --- [    Test worker] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@1d381c96, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@73bbc999, org.springframework.security.web.context.SecurityContextHolderFilter@2a60598d, org.springframework.security.web.header.HeaderWriterFilter@49df39e9, org.springframework.web.filter.CorsFilter@733c4651, org.springframework.security.web.authentication.logout.LogoutFilter@1db9a962, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@3873f99c, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2a0d11b7, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@182f15b4, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@11c33baa, org.springframework.security.web.access.ExceptionTranslationFilter@25a086ac, org.springframework.security.web.access.intercept.AuthorizationFilter@1ca9bfe3]
-2026-04-08T23:26:34.852-03:00  INFO 8188 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 51087 (http) with context path ''
-2026-04-08T23:26:34.867-03:00  INFO 8188 --- [    Test worker] c.system.selenium.ProductSeleniumTest    : Started ProductSeleniumTest in 11.58 seconds (process running for 19.119)
-Admin criado: admin / $2a$10$qQv/bMpi4IPD2HXEo5tK1uNrjqd.kevfS2w/weNyoJZyVvmaewOHu
-User criado: user / $2a$10$XjFSB6jj42TYyZHq3xWb3Oj2ecmwfXyrRU1xC6b1TPSl7m8FC1aJy
-2026-04-08T23:26:36.317-03:00  INFO 8188 --- [    Test worker] i.g.bonigarcia.wdm.WebDriverManager      : Using chromedriver 146.0.7680.165 (resolved driver for Chrome 146)
-2026-04-08T23:26:36.352-03:00  INFO 8188 --- [    Test worker] i.g.bonigarcia.wdm.WebDriverManager      : Exporting webdriver.chrome.driver as C:\Users\sodre\.cache\selenium\chromedriver\win64\146.0.7680.165\chromedriver.exe
-2026-04-08T23:26:38.087-03:00  WARN 8188 --- [    Test worker] o.o.selenium.devtools.CdpVersionFinder   : Unable to find CDP implementation matching 146
-2026-04-08T23:26:38.087-03:00  WARN 8188 --- [    Test worker] o.o.selenium.chromium.ChromiumDriver     : Unable to find version of CDP to use for 146.0.7680.178. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.14.1` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
-2026-04-08T23:26:38.337-03:00  INFO 8188 --- [o-auto-1-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2026-04-08T23:26:38.337-03:00  INFO 8188 --- [o-auto-1-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2026-04-08T23:26:38.337-03:00  INFO 8188 --- [o-auto-1-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
-2026-04-08T23:26:38.374-03:00  WARN 8188 --- [o-auto-1-exec-1] o.s.w.s.h.HandlerMappingIntrospector     : Cache miss for REQUEST dispatch to '/login' (previous null). Performing CorsConfiguration lookup. This is logged once only at WARN level, and every time at TRACE.
-2026-04-08T23:26:38.998-03:00  WARN 8188 --- [o-auto-1-exec-2] o.s.w.s.h.HandlerMappingIntrospector     : Cache miss for REQUEST dispatch to '/favicon.ico' (previous null). Performing MatchableHandlerMapping lookup. This is logged once only at WARN level, and every time at TRACE.
-URL APÓS LOGIN: http://localhost:51087/products
+2026-04-10T02:10:56.574-03:00  INFO 15312 --- [    Test worker] c.system.selenium.ProductSeleniumTest    : Starting ProductSeleniumTest using Java 17.0.17 with PID 15312 (started by sodre in C:\Users\sodre\Downloads\quantum-system)
+2026-04-10T02:10:56.577-03:00  INFO 15312 --- [    Test worker] c.system.selenium.ProductSeleniumTest    : No active profile set, falling back to 1 default profile: "default"
+2026-04-10T02:10:58.254-03:00  INFO 15312 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-04-10T02:10:58.438-03:00  INFO 15312 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 155 ms. Found 2 JPA repository interfaces.
+2026-04-10T02:10:59.871-03:00  INFO 15312 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 0 (http)
+2026-04-10T02:10:59.897-03:00  INFO 15312 --- [    Test worker] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-04-10T02:10:59.898-03:00  INFO 15312 --- [    Test worker] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.16]
+2026-04-10T02:11:00.078-03:00  INFO 15312 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-04-10T02:11:00.080-03:00  INFO 15312 --- [    Test worker] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3443 ms
+2026-04-10T02:11:00.151-03:00  INFO 15312 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-04-10T02:11:00.791-03:00  INFO 15312 --- [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
+2026-04-10T02:11:00.794-03:00  INFO 15312 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-04-10T02:11:00.822-03:00  INFO 15312 --- [    Test worker] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:testdb'
+2026-04-10T02:11:01.124-03:00  INFO 15312 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-04-10T02:11:01.301-03:00  INFO 15312 --- [    Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.3.1.Final
+2026-04-10T02:11:01.398-03:00  INFO 15312 --- [    Test worker] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-04-10T02:11:02.017-03:00  INFO 15312 --- [    Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-04-10T02:11:02.131-03:00  WARN 15312 --- [    Test worker] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-04-10T02:11:04.433-03:00  INFO 15312 --- [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-04-10T02:11:04.558-03:00  INFO 15312 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-04-10T02:11:05.309-03:00  WARN 15312 --- [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-04-10T02:11:05.964-03:00  INFO 15312 --- [    Test worker] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@66b2416e, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@378c66fb, org.springframework.security.web.context.SecurityContextHolderFilter@319f6039, org.springframework.security.web.header.HeaderWriterFilter@2a143bc4, org.springframework.web.filter.CorsFilter@2a85fbb7, org.springframework.security.web.authentication.logout.LogoutFilter@244a0aa5, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@5e2023af, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@240c9b52, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@760d3258, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@16a927cc, org.springframework.security.web.access.ExceptionTranslationFilter@2819e575, org.springframework.security.web.access.intercept.AuthorizationFilter@54aac0c1]
+2026-04-10T02:11:06.871-03:00  INFO 15312 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 63429 (http) with context path ''
+2026-04-10T02:11:06.889-03:00  INFO 15312 --- [    Test worker] c.system.selenium.ProductSeleniumTest    : Started ProductSeleniumTest in 11.057 seconds (process running for 14.678)
+2026-04-10T02:11:08.985-03:00  INFO 15312 --- [    Test worker] i.g.bonigarcia.wdm.WebDriverManager      : Using chromedriver 146.0.7680.165 (resolved driver for Chrome 146)
+2026-04-10T02:11:09.018-03:00  INFO 15312 --- [    Test worker] i.g.bonigarcia.wdm.WebDriverManager      : Exporting webdriver.chrome.driver as C:\Users\sodre\.cache\selenium\chromedriver\win64\146.0.7680.165\chromedriver.exe
+port: 63429
+2026-04-10T02:11:10.605-03:00  WARN 15312 --- [    Test worker] o.o.selenium.devtools.CdpVersionFinder   : Unable to find CDP implementation matching 146
+2026-04-10T02:11:10.606-03:00  WARN 15312 --- [    Test worker] o.o.selenium.chromium.ChromiumDriver     : Unable to find version of CDP to use for 146.0.7680.178. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.14.1` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+2026-04-10T02:11:10.846-03:00  INFO 15312 --- [o-auto-1-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-04-10T02:11:10.847-03:00  INFO 15312 --- [o-auto-1-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-04-10T02:11:10.848-03:00  INFO 15312 --- [o-auto-1-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2026-04-10T02:11:10.876-03:00  WARN 15312 --- [o-auto-1-exec-1] o.s.w.s.h.HandlerMappingIntrospector     : Cache miss for REQUEST dispatch to '/login' (previous null). Performing CorsConfiguration lookup. This is logged once only at WARN level, and every time at TRACE.
+2026-04-10T02:11:11.736-03:00  WARN 15312 --- [o-auto-1-exec-2] o.s.w.s.h.HandlerMappingIntrospector     : Cache miss for REQUEST dispatch to '/favicon.ico' (previous null). Performing MatchableHandlerMapping lookup. This is logged once only at WARN level, and every time at TRACE.
+URL APÓS LOGIN: http://localhost:63429/products
+2026-04-10T02:11:13.633-03:00  INFO 15312 --- [    Test worker] i.g.bonigarcia.wdm.WebDriverManager      : Using chromedriver 146.0.7680.165 (resolved driver for Chrome 146)
+2026-04-10T02:11:13.645-03:00  INFO 15312 --- [    Test worker] i.g.bonigarcia.wdm.WebDriverManager      : Exporting webdriver.chrome.driver as C:\Users\sodre\.cache\selenium\chromedriver\win64\146.0.7680.165\chromedriver.exe
+port: 63429
+2026-04-10T02:11:14.426-03:00  WARN 15312 --- [    Test worker] o.o.selenium.devtools.CdpVersionFinder   : Unable to find CDP implementation matching 146
+2026-04-10T02:11:14.426-03:00  WARN 15312 --- [    Test worker] o.o.selenium.chromium.ChromiumDriver     : Unable to find version of CDP to use for 146.0.7680.178. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.14.1` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+URL APÓS LOGIN: http://localhost:63429/login
+2026-04-10T02:11:15.758-03:00  INFO 15312 --- [    Test worker] i.g.bonigarcia.wdm.WebDriverManager      : Using chromedriver 146.0.7680.165 (resolved driver for Chrome 146)
+2026-04-10T02:11:15.769-03:00  INFO 15312 --- [    Test worker] i.g.bonigarcia.wdm.WebDriverManager      : Exporting webdriver.chrome.driver as C:\Users\sodre\.cache\selenium\chromedriver\win64\146.0.7680.165\chromedriver.exe
+port: 63429
+2026-04-10T02:11:16.553-03:00  WARN 15312 --- [    Test worker] o.o.selenium.devtools.CdpVersionFinder   : Unable to find CDP implementation matching 146
+2026-04-10T02:11:16.554-03:00  WARN 15312 --- [    Test worker] o.o.selenium.chromium.ChromiumDriver     : Unable to find version of CDP to use for 146.0.7680.178. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.14.1` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+URL APÓS LOGIN: http://localhost:63429/login
+http://localhost:63429/products
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
